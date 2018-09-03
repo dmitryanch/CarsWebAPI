@@ -3,7 +3,9 @@ Workspace for testing Web API application with NoSQL databases
 
 ## Solution
 Code: c# 7.3
+
 Libs: .NET Standard 2.0
+
 Server-only restfull WebApi App: .NET Core 2.1
 
 # Steps
