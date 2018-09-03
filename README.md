@@ -14,7 +14,7 @@ Server-only restfull WebApi App: .NET Core 2.1
 cd C:\Program Files\MongoDB\Server\<your_mongo_version>\bin
 mongod --dbpath <dataFolder>
 ```
-## Creating a test record
+## Creating a test record via terminal
 ```
 cd C:\Program Files\MongoDB\Server\<your_mongo_version>\bin
 mongo
@@ -30,3 +30,7 @@ cd <solution_derictory>
 dotnet publish -c Release -r win10-x64
 dotnet publish -c Release -r ubuntu.16.10-x64
 ```
+
+## Databases
+The name of database is configured in appsetting.json for WebApi project as well as Test project.
+CarsWebApp proj uses mongo db named CarsDB by default, Test proj uses db named testCarsDB.
