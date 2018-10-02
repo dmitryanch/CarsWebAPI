@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsWebAPI", "CarsWebApp\CarsWebAPI.csproj", "{C03FD7C4-E781-49A8-B943-C996C71BD68F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsApp.WebAPI", "CarsApp.WebAPI\CarsApp.WebAPI.csproj", "{C03FD7C4-E781-49A8-B943-C996C71BD68F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarApp.Model", "CarApp.Model\CarApp.Model.csproj", "{0FA8802D-5AA4-455E-90A7-8F161A3FCDD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsApp.Model", "CarsApp.Model\CarsApp.Model.csproj", "{0FA8802D-5AA4-455E-90A7-8F161A3FCDD8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{ACFDD5C2-67EB-41B3-9397-E4E83C26C551}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{4E7800C0-D42C-48E4-ABFD-E07B913850DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mongo", "DataAccess\Mongo\Mongo.csproj", "{38C5E3AC-A6E4-4480-BD76-D22161EBD3ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsApp.MongoORM", "DataAccess\Mongo\CarsApp.MongoORM.csproj", "{38C5E3AC-A6E4-4480-BD76-D22161EBD3ED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsWebAPI.Tests", "Tests\CarsWebAPI.Tests\CarsWebAPI.Tests.csproj", "{CE3F9735-72C0-41DB-B607-A362901D7848}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsApp.WebAPI.Tests", "Tests\CarsApp.WebAPI.Tests\CarsApp.WebAPI.Tests.csproj", "{CE3F9735-72C0-41DB-B607-A362901D7848}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

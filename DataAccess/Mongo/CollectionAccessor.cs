@@ -1,10 +1,11 @@
-﻿using CarApp.Model.Interfaces;
+﻿using CarsApp.Model.Interfaces;
 using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mongo
+namespace CarsApp.MongoORM
 {
     /// <summary>
     /// This class provides async CRUD API for mongo collections, It wraps Mongodb.Driver
@@ -26,7 +27,7 @@ namespace Mongo
         /// <returns>Collection of entities wrapped into Task</returns>
         public async Task<IEnumerable<TEntity>> Get()
         {
-            var docs = await _collection.FindAsync(Builders<TEntity>.Filter.Empty);
+            var docs = await _collection.FindAsync(_ => true);
             return await docs.ToListAsync();
         }
 
@@ -42,18 +43,30 @@ namespace Mongo
         }
 
         /// <summary>
-        /// Saves Entity with upsert option Async
+        /// Inserts Entity with upsert option Async
         /// </summary>
         /// <param name="obj">Specified Entity</param>
         /// <param name="isUpsert">Is need to create entity if that doesn't exist</param>
         /// <returns>Saved Entity</returns>
-        public async Task<TEntity> Save(TEntity obj, bool isUpsert)
+        public async Task<TEntity> Insert(TEntity obj)
         {
-            await _collection.ReplaceOneAsync(x => x.Id.Equals(obj.Id), obj, new UpdateOptions
-            {
-                IsUpsert = isUpsert
-            });
+            await _collection.InsertOneAsync(obj);
             return obj;
+        }
+
+        /// <summary>
+        /// Updates fields of the Entity
+        /// </summary>
+        /// <typeparam name="TValue">Type of the specified field</typeparam>
+        /// <param name="filter">filter expression</param>
+        /// <param name="updateField">update field expression</param>
+        /// <param name="value">field value to update</param>
+        /// <returns>Raw Task</returns>
+        public async Task Update<TValue>(TIdentifier id, Func<TEntity, bool> filter, Func<TEntity, TValue> updateField, TValue value)
+        {
+            var filterDef = Builders<TEntity>.Filter.Eq(x => x.Id, id) & Builders<TEntity>.Filter.Eq(x => filter(x), true);
+            var updateDef = Builders<TEntity>.Update.Set<TValue>(x => updateField(x), value);
+            await _collection.FindOneAndUpdateAsync(x => filter(x), updateDef, new FindOneAndUpdateOptions<TEntity, TValue> { IsUpsert = true });
         }
 
         /// <summary>

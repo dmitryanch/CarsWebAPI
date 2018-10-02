@@ -20,8 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CarApp.Model\CarApp.Model.csproj" />
-    <ProjectReference Include="..\DataAccess\Mongo\Mongo.csproj" />
+    <ProjectReference Include="..\CarsApp.Model\CarsApp.Model.csproj" />
+    <ProjectReference Include="..\DataAccess\Mongo\CarsApp.MongoORM.csproj" />
   </ItemGroup>
 
 </Project>

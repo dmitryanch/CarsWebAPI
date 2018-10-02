@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CarApp.Model\CarApp.Model.csproj" />
+    <ProjectReference Include="..\..\CarsApp.Model\CarsApp.Model.csproj" />
   </ItemGroup>
 
 </Project>
